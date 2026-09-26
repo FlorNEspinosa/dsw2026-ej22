@@ -1,27 +1,177 @@
-.login-container {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  height: 100vh;
-  background-color: #f0f0f0;
+body {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 1rem;
+    height: 100vh;
+    min-height: 100dvh;
+    margin: 0;
+    background-color: #f0f0f0;
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    position: relative;
+    overflow: hidden;
+
+    background: radial-gradient(
+        circle at center, 
+        #063b65 0%, 
+        #052d51 45%, 
+        #001e37 100%
+    );
 }
 
-.login-container form {
-  display: flex;
-  flex-direction: column;
-  gap: 1rem;
-  background: white;
-  padding: 2rem;
-  border-radius: 8px;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+.login-header {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    padding: 2rem;
+    border-radius: 8px 8px 0 0;
+    align-items: center;
+}
+
+.login-header svg{
+    height: 1.25rem;
+    width: 1.25rem;
+    stroke-width: 2.5px;
+    padding: 0.5rem 0.35rem;
+    background-color: white;
+    color: #01325f;
+    border-radius: 0.25rem;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+.login-header h1 {
+   font-size: 1.5rem;
+   font-weight: 400;
+   color: #ffffff;
+   margin: 0;
+}
+
+.login-main {
+    width: 300px;
+    display: flex;
+    flex-direction: column;
+    border-radius: 0.3rem;
+    box-shadow: 0 0 3px rgba(0, 0, 0, 0.1);
+    box-sizing: border-box;
+    overflow: hidden;
+}
+.login-main form {
+    display: flex;
+    flex-direction: column;
+    padding: 1.5rem 1.35rem;
+    background-color: white;
+}
+
+.form-field {
+    display: flex;
+    flex-direction: column;
+    gap: 0.2rem;
+    padding: 0.3rem 0;
+}
+
+.login-main form strong {
+    font-size: 0.725rem;
+    color: #063b65;
+    font-weight: 500;
+}
+
+.login-main form p {
+    font-size: 0.725rem;
+    font-weight: 400;
+    margin: 0.35rem 0 0.7rem;
+    line-height: 1.4;
+}
+
+.login-main form label {
+    font-size: 0.725rem;
+    color: #010101;
+}
+
+.input-container {
+    display: flex;
+    align-items: center;
+    background-color: #e6f5ff;
+    border: 1px solid #d9e0e4;
+    border-radius: 0.2rem;
+    padding: 0 0.5rem;
+}
+.input-container input {
+    border: none;
+    outline: none;
+    background-color: transparent;
+    width: 100%;
+    padding: 0.5rem;
+    font-family: inherit;
+    font-size: 0.675rem;
+    }
+
+.input-container svg {
+    width: 0.9rem;
+    height: 0.9rem;
+    color: #666c7b;
+}
+
+#toggle-password {
+    cursor: pointer;
+}
+
+input[type="password"]::-ms-reveal {
+    display: none;
+}
+
+#submit {
+    margin-top: 0.5rem;
+    width: 100%;
+    height: 2.2rem;
+    background-color: #01325f;
+    color: #ffffff;
+    border: none;
+    border-radius: 0.2rem;
+    font-family: inherit;
+    font-size: 0.725rem;
+    font-weight: 300;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.4rem;
+    cursor: pointer;
+}
+
+#submit svg {
+    width: 0.8rem;
+    height: 0.8rem;
+}
+
+.login-footer {
+    display: flex;
+    align-items: flex-start;
+    gap: 0.85rem;
+    background-color: #e6f5ff;
+    padding: 1rem 1.2rem;
+    border-top: 1px solid #d9e0e4;
+}
+
+.login-footer svg {
+    width: 0.9rem;
+    height: 0.9rem;
+    color: #085c8d;
+    flex-shrink: 0;
+    margin-top: 0.2rem;
+}
+
+.login-footer strong {
+    color: #000000;
+    font-size: 0.725rem;
+    font-weight: 700;
+}
+
+.login-footer p {
+    font-size: 0.725rem;
+    margin: 0;
 }
 
 @media screen and (min-width: 600px) {
-  .login-container {
+  .login-main {
     align-items: center;
-  }
-
-  .login-container form {
-    width: 400px;
   }
 }
