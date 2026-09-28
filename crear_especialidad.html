@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Agregar Nueva Especialidad - Panel de administración</title>
+    <link rel="stylesheet" href="crear_especialidad.css">
+    <script src="https://unpkg.com/lucide@latest" defer></script>
+    <script src="crear_especialidad.js" defer></script>
+</head>
+<body>
+    <div class="dashboard-container">
+
+        <!-- Header Móvil -->
+        <header class="mobile-header">
+            <strong>Admin Portal</strong>
+            <button type="button"
+                    id="menu-btn"
+                    aria-label="Abrir menú"
+                    aria-controls="nav"
+                    aria-expanded="false">
+                &#9776;
+            </button>
+        </header>
+
+        <!-- Sidebar -->
+        <nav id="nav" class="sidebar" aria-label="Navegación principal">
+            <div>
+                <div class="brand">
+                    <strong>Admin Portal</strong>
+                    <p>Healthcare Management</p>
+                </div>
+
+                <ul class="nav-links">
+                    <li>
+                        <a href="dashboard.html">
+                            <i data-lucide="layout-dashboard" aria-hidden="true"></i> Panel
+                        </a>
+                    </li>
+                    <li>
+                        <a href="medicos.html">
+                            <i data-lucide="briefcase-medical" aria-hidden="true"></i> Doctores
+                        </a>
+                    </li>
+                    <li>
+                        <a href="especialidades.html" class="active">
+                            <i data-lucide="shapes" aria-hidden="true"></i> Especialidades
+                        </a>
+                    </li>
+                    <li>
+                        <a href="pacientes.html">
+                            <i data-lucide="users-round" aria-hidden="true"></i> Pacientes
+                        </a>
+                    </li>
+                </ul>
+            </div>
+
+            <div class="sidebar-bottom">
+                <button type="button" class="sidebar-action" disabled>
+                    <i data-lucide="settings" aria-hidden="true"></i> Configuración
+                </button>
+                <button type="button" id="logout" class="sidebar-action">
+                    <i data-lucide="log-out" aria-hidden="true"></i> Cerrar Sesión
+                </button>
+                <div class="user-profile">
+                    <img src="images/perfil-admin.png" alt="Foto de la administradora" style="background-color: #e1edf2; width: 36px; height: 36px; border-radius: 9px;">
+                    <div>
+                        <strong>Administradora</strong>
+                        <small>Administradora Jefe</small>
+                    </div>
+                </div>
+            </div>
+        </nav>
+
+        <!-- Contenido principal -->
+        <main>
+            <div class="page-heading">
+                <h1>Registrar Nueva Especialidad</h1>
+                <p>Complete la información técnica y administrativa para dar de alta una especialidad médica en el sistema hospitalario.</p>
+            </div>
+
+            <section class="form-container" aria-label="Formulario de nueva especialidad">
+                <form id="createSpecialtyForm" class="form-card">
+                    <div class="form-field">
+                        <label for="specialtyName">Nombre de la Especialidad</label>
+                        <input type="text" id="specialtyName" class="form-input" placeholder="Ej. Cardiología Intervencionista" required>
+                    </div>
+
+                    <div class="form-field">
+                        <label for="specialtyDesc">Descripción</label>
+                        <textarea id="specialtyDesc" class="form-input textarea-input" placeholder="Detalle el alcance de la especialidad..." rows="4" required></textarea>
+                    </div>
+
+                    <div class="form-field">
+                        <label for="specialtyStatus">Estado inicial</label>
+                        <select id="specialtyStatus" class="form-input" required>
+                            <option value="activo" selected>Activo - Disponible</option>
+                            <option value="inactivo">Inactivo - No disponible</option>
+                        </select>
+                    </div>
+
+                    <div class="page-actions form-actions">
+                        <button type="button" id="btnCancel" class="button button-outline">
+                            Cancelar
+                        </button>
+                        <button type="submit" class="button button-primary">
+                            <i data-lucide="save" aria-hidden="true"></i> Guardar Especialidad
+                        </button>
+                    </div>
+                </form>
+            </section>
+        </main>
+    </div>
+</body>
+</html>

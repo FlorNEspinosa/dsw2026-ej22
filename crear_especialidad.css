@@ -1,0 +1,285 @@
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    height: auto;
+    min-height: 100vh;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 14px;
+    color: #344054;
+    background-color: #f3faff;
+}
+
+button, input, textarea, select {
+    font: inherit;
+}
+
+button {
+    cursor: pointer;
+}
+
+a {
+    text-decoration: none;
+}
+
+    button:focus-visible, a:focus-visible, input:focus-visible, textarea:focus-visible, select:focus-visible {
+        outline: 2px solid #009e95;
+        outline-offset: 3px;
+    }
+
+svg {
+    width: 18px;
+    height: 18px;
+    flex-shrink: 0;
+    stroke-width: 1.8;
+}
+
+/* Base Layout (Mobile First) */
+.dashboard-container {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr);
+    grid-template-rows: auto auto 1fr;
+    grid-template-areas:
+        "header"
+        "nav"
+        "main";
+    min-height: 100vh;
+}
+
+.mobile-header {
+    grid-area: header;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 16px 20px;
+    color: #084879;
+    background-color: #f7f9fc;
+    border-bottom: 1px solid #dce4ed;
+}
+
+#menu-btn {
+    padding: 6px 12px;
+    border: 1px solid #cad5e2;
+    border-radius: 5px;
+    color: #084879;
+    background-color: white;
+    font-size: 22px;
+}
+
+.sidebar {
+    grid-area: nav;
+    display: none; /* Oculto en movil por defecto */
+    flex-direction: column;
+    background-color: #f7f9fc;
+    position: absolute;
+    top: 65px;
+    left: 0;
+    width: 100%;
+    z-index: 100;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+}
+
+    .sidebar.open {
+        display: flex;
+    }
+
+.brand {
+    padding: 30px 24px;
+}
+
+    .brand strong {
+        display: block;
+        color: #08518c;
+        font-size: 17px;
+    }
+
+    .brand p {
+        margin: 5px 0 0;
+        color: #64748b;
+        font-size: 10px;
+    }
+
+.nav-links {
+    margin: 0;
+    padding: 0 12px;
+    list-style: none;
+}
+
+    .nav-links a {
+        display: flex;
+        align-items: center;
+        gap: 12px;
+        min-height: 44px;
+        padding: 12px;
+        border-left: 3px solid transparent;
+        color: #405574;
+        font-size: 12px;
+    }
+
+        .nav-links a.active {
+            border-left-color: #0bb3a3;
+            color: #009e95;
+            background-color: white;
+        }
+
+        .nav-links a:hover {
+            background-color: #eaf3f8;
+        }
+
+.sidebar-bottom {
+    margin-top: auto;
+    padding: 14px 16px;
+    border-top: 1px solid #e4eaf1;
+}
+
+.sidebar-action {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    width: 100%;
+    min-height: 40px;
+    padding: 10px 12px;
+    border: 0;
+    color: #405574;
+    background-color: transparent;
+    text-align: left;
+    font-size: 12px;
+}
+
+    .sidebar-action:hover {
+        background-color: #eaf3f8;
+    }
+
+.user-profile {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 8px 12px 0;
+}
+
+    .user-profile strong {
+        display: block;
+        font-size: 11px;
+    }
+
+    .user-profile small {
+        display: block;
+        margin-top: 4px;
+        color: #64748b;
+        font-size: 9px;
+    }
+
+main {
+    grid-area: main;
+    min-width: 0;
+    padding: 24px 18px;
+}
+
+.page-heading h1 {
+    margin: 0 0 6px;
+    color: #092f5a;
+    font-size: 27px;
+}
+
+.page-heading p {
+    margin: 0 0 28px 0;
+    line-height: 1.5;
+    color: #64748b;
+}
+
+.button {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    min-height: 46px;
+    padding: 12px 18px;
+    border: 1px solid #07518c;
+    border-radius: 6px;
+    font-size: 12px;
+    font-weight: 600;
+}
+
+.button-primary {
+    color: white;
+    background-color: #084c83;
+}
+
+.button-outline {
+    color: #07518c;
+    background-color: transparent;
+}
+
+/* --- ESTILOS DEL FORMULARIO --- */
+.form-card {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    padding: 24px;
+    border: 1px solid #cdd7e3;
+    border-radius: 6px;
+    background-color: white;
+    max-width: 800px;
+}
+
+.form-field {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+    .form-field label {
+        font-weight: 600;
+        color: #092f5a;
+        font-size: 13px;
+    }
+
+.form-input {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid #cdd7e3;
+    border-radius: 4px;
+    color: #344054;
+    background-color: #f7f9fc;
+    transition: all 0.2s ease;
+}
+
+    .form-input:focus {
+        background-color: white;
+        border-color: #009e95;
+    }
+
+.textarea-input {
+    resize: vertical;
+    min-height: 120px;
+}
+
+.form-actions {
+    display: flex;
+    justify-content: flex-end;
+    gap: 14px;
+    margin-top: 10px;
+}
+
+/* Media Query Escritorio */
+@media screen and (min-width: 600px) {
+    .dashboard-container {
+        grid-template-columns: 240px minmax(0, 1fr);
+        grid-template-rows: 1fr;
+        grid-template-areas: "nav main";
+    }
+
+    .mobile-header {
+        display: none;
+    }
+
+    .sidebar {
+        display: flex;
+        position: static;
+        min-height: 100vh;
+        box-shadow: none;
+        border-right: 1px solid #dce4ed;
+    }
+}
