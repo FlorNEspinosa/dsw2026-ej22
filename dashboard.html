@@ -1,42 +1,251 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Listado de Productos</title>
-  <link rel="stylesheet" href="style.css">
-  <link rel="stylesheet" href="dashboard_style.css">
-  <script src="dashboard.js"></script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Panel de administración</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="dashboard_style.css">
+    <script src="https://unpkg.com/lucide@latest" defer></script>
+    <script src="dashboard.js"></script>
 </head>
 <body>
-  <div class="dashboard-container">
-    <header>
-      <span>Gestor de turnos</span>
-      <div>
-        <button class="menu">&#9776;</button>
-        <button id="logout">Cerrar Sesión</button>
-      </div>
-    </header>
-    <nav id="sidebar">
-      <ul>
-        <li><a href="#">Panel</a></li>
-      </ul>
-    </nav>
-    <main>
-      <h1>Pacientes</h1>
-      <table>
-        <thead>
-          <tr>
-            <th>ID</th>
-            <th>Paciente</th>
-          </tr>
-        </thead>
-        <tbody id="product-table-body">
-          <!-- Los productos se cargarán aquí dinámicamente -->
-        </tbody>
-      </table>
-    </main>
-    <footer>Mi Aplicación &copy; 2024</footer>
-  </div>
-</body>
+        <div class="dashboard-container">
+
+            
+            <header class="mobile-header">
+                <strong>Admin Portal</strong>
+
+                <button type="button"
+                        id="menu-btn"
+                        aria-label="Abrir menú"
+                        aria-controls="nav"
+                        aria-expanded="false">
+                    &#9776;
+                </button>
+            </header>
+
+            
+            <nav id="nav" class="sidebar" aria-label="Navegación principal">
+                <div>
+                    <div class="brand">
+                        <strong>Admin Portal</strong>
+                        <p>Healthcare Management</p>
+                    </div>
+
+                    <ul class="nav-links">
+                        <li>
+                            <a href="#" class="active">
+                                <i data-lucide="layout-dashboard" aria-hidden="true"></i>
+                                Panel
+                            </a>
+                        </li>
+
+                        <li>
+                            <a href="#">
+                                <i data-lucide="briefcase-medical" aria-hidden="true"></i>
+                                Doctores
+                            </a>
+                        </li>
+
+                        <li>
+                            <a href="#">
+                                <i data-lucide="shapes" aria-hidden="true"></i>
+                                Especialidades
+                            </a>
+                        </li>
+
+                        <li>
+                            <a href="#">
+                                <i data-lucide="users-round" aria-hidden="true"></i>
+                                Búsqueda de Pacientes
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+
+                <div class="sidebar-bottom">
+                    <button type="button" class="sidebar-action" disabled>
+                        <i data-lucide="settings" aria-hidden="true"></i>
+                        Configuración
+                    </button>
+
+                    <button type="button" id="logout" class="sidebar-action">
+                        <i data-lucide="log-out" aria-hidden="true"></i>
+                        Cerrar Sesión
+                    </button>
+
+                    <div class="user-profile">
+                        <img src="images/perfil-admin.png"
+                             alt="Foto de la administradora">
+
+                        <div>
+                            <strong>Administradora</strong>
+                            <small>Administradora Jefe</small>
+                        </div>
+                    </div>
+                </div>
+            </nav>
+
+            
+            <main>
+                <div class="page-heading">
+                    <h1>Vista General de Gestión</h1>
+                    <p>
+                        Configure el personal médico y las especialidades del departamento.
+                    </p>
+                </div>
+
+                <div class="page-actions">
+                    <button type="button" class="button button-primary" disabled>
+                        <i data-lucide="plus" aria-hidden="true"></i>
+                        Agregar Nuevo Doctor
+                    </button>
+
+                    <button type="button" class="button button-outline" disabled>
+                        <i data-lucide="shapes" aria-hidden="true"></i>
+                        Agregar Nueva Especialidad
+                    </button>
+                </div>
+
+               
+                <section class="summary" aria-label="Resumen de gestión">
+                    <article class="summary-card">
+                        <div class="card-top">
+                            <span class="card-icon">
+                                <i data-lucide="briefcase-medical" aria-hidden="true"></i>
+                            </span>
+
+                            <span class="badge badge-green">+4 este mes</span>
+                        </div>
+
+                        <h2>Doctores activos</h2>
+                        <p class="card-value">124</p>
+                    </article>
+
+                    <article class="summary-card">
+                        <div class="card-top">
+                            <span class="card-icon blue">
+                                <i data-lucide="layout-grid" aria-hidden="true"></i>
+                            </span>
+
+                            <span class="badge badge-gray">Estable</span>
+                        </div>
+
+                        <h2>Especialidades activas</h2>
+                        <p class="card-value">32</p>
+                    </article>
+
+                    <article class="summary-card">
+                        <div class="card-top">
+                            <span class="card-icon green">
+                                <i data-lucide="calendar-check" aria-hidden="true"></i>
+                            </span>
+
+                            <span class="badge badge-blue">Hoy</span>
+                        </div>
+
+                        <h2>Turnos confirmados para hoy</h2>
+                        <p class="card-value">48</p>
+                    </article>
+                </section>
+
+                
+                <section class="directory" aria-labelledby="directory-title">
+                    <div class="directory-header">
+                        <h2 id="directory-title">
+                            Directorio de Profesionales Médicos
+                        </h2>
+
+                        
+                        <div class="search">
+                            <i data-lucide="search" aria-hidden="true"></i>
+
+                            <input type="search"
+                                   id="search-doctor"
+                                   placeholder="Buscar por nombre..."
+                                   aria-label="Buscar médico por nombre">
+                        </div>
+                    </div>
+
+                    <div class="table-container">
+                        <table>
+                            <thead>
+                                <tr>
+                                    <th scope="col">Nombre del Doctor</th>
+                                    <th scope="col">Especialidad</th>
+                                    <th scope="col">Estado de Disponibilidad</th>
+                                    <th scope="col">Acciones</th>
+                                </tr>
+                            </thead>
+
+                            <tbody>
+                                <tr>
+                                    <td>
+                                        <div class="doctor">
+                                            <img src="images/doctor-james-wilson.png"
+                                                 alt="">
+                                            <strong>Dr. James Wilson</strong>
+                                        </div>
+                                    </td>
+
+                                    <td>Cardiología</td>
+                                    <td>
+                                        <span class="status active-status">Activo</span>
+                                    </td>
+                                    <td></td>
+                                </tr>
+
+                                <tr>
+                                    <td>
+                                        <div class="doctor">
+                                            <img src="images/doctor-elena-rodriguez.png"
+                                                 alt="">
+                                            <strong>Dra. Elena Rodriguez</strong>
+                                        </div>
+                                    </td>
+
+                                    <td>Neurología</td>
+                                    <td>
+                                        <span class="status active-status">Activo</span>
+                                    </td>
+                                    <td></td>
+                                </tr>
+
+                                <tr>
+                                    <td>
+                                        <div class="doctor">
+                                            <img src="images/doctor-robert-chen.png"
+                                                 alt="">
+                                            <strong>Dr. Robert Chen</strong>
+                                        </div>
+                                    </td>
+
+                                    <td>Pediatría</td>
+                                    <td>
+                                        <span class="status leave-status">De Licencia</span>
+                                    </td>
+                                    <td></td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+
+                    <footer class="directory-footer">
+                        <span>Mostrando 3 médicos de ejemplo</span>
+
+                        <div class="pagination">
+                            <button type="button" aria-label="Página anterior" disabled>
+                                <i data-lucide="chevron-left" aria-hidden="true"></i>
+                            </button>
+
+                            <button type="button" aria-label="Página siguiente" disabled>
+                                <i data-lucide="chevron-right" aria-hidden="true"></i>
+                            </button>
+                        </div>
+                    </footer>
+                </section>
+            </main>
+        </div>
+    </body>
 </html>
