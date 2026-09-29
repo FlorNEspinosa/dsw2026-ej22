@@ -1,0 +1,17 @@
+[
+  {
+    "id": "GUID-1",
+    "name": "Cardiology",
+    "description": "Cardiology is a branch of medicine that deals with disorders of the heart"
+  },
+  {
+    "id": "GUID-2",
+    "name": "Dermatology",
+    "description": "Dermatology is the branch of medicine that focuses on the diagnosis and treatment of skin disorders"
+  },
+  {
+    "id": "GUID-3",
+    "name": "Neurology",
+    "description": "Neurology is the branch of medicine that deals with disorders of the nervous system"
+  }
+]
