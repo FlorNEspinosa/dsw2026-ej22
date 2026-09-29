@@ -36,7 +36,6 @@ svg {
     stroke-width: 1.8;
 }
 
-/* Base Layout (Mobile First) */
 .dashboard-container {
     display: grid;
     grid-template-columns: minmax(0, 1fr);
@@ -70,7 +69,7 @@ svg {
 
 .sidebar {
     grid-area: nav;
-    display: none; /* Oculto en movil por defecto */
+    display: none; 
     flex-direction: column;
     background-color: #f7f9fc;
     position: absolute;
@@ -212,7 +211,6 @@ main {
     background-color: transparent;
 }
 
-/* --- ESTILOS DEL FORMULARIO --- */
 .form-card {
     display: flex;
     flex-direction: column;
@@ -221,7 +219,8 @@ main {
     border: 1px solid #cdd7e3;
     border-radius: 6px;
     background-color: white;
-    max-width: 800px;
+    width: 100%;
+    max-width: none;
 }
 
 .form-field {
@@ -263,10 +262,9 @@ main {
     margin-top: 10px;
 }
 
-/* Media Query Escritorio */
 @media screen and (min-width: 600px) {
     .dashboard-container {
-        grid-template-columns: 240px minmax(0, 1fr);
+        grid-template-columns: 200px minmax(0, 1fr);
         grid-template-rows: 1fr;
         grid-template-areas: "nav main";
     }
