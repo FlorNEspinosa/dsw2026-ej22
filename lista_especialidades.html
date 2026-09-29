@@ -1,0 +1,193 @@
+﻿<!DOCTYPE html>
+
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Directorio de Especialidades</title>
+
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="dashboard_style.css">
+    <link rel="stylesheet" href="lista_especialidades.css">
+
+    <script src="https://unpkg.com/lucide@latest" defer></script>
+    <script src="dashboard.js" defer></script>
+    <script src="lista_especialidades.js" defer></script>
+</head>
+<body>
+        <div class="dashboard-container">
+
+            <header class="mobile-header">
+                <strong>Admin Portal</strong>
+
+                <button type="button"
+                        id="menu-btn"
+                        aria-label="Abrir menú"
+                        aria-controls="nav"
+                        aria-expanded="false">
+                    &#9776;
+                </button>
+            </header>
+
+            <nav id="nav" class="sidebar" aria-label="Navegación principal">
+                <div>
+                    <div class="brand">
+                        <strong>Admin Portal</strong>
+                        <p>Healthcare Management</p>
+                    </div>
+
+                    <ul class="nav-links">
+                        <li>
+                            <a href="dashboard.html">
+                                <i data-lucide="layout-dashboard" aria-hidden="true"></i>
+                                Panel
+                            </a>
+                        </li>
+
+                        <li>
+                            <a href="#">
+                                <i data-lucide="briefcase-medical" aria-hidden="true"></i>
+                                Doctores
+                            </a>
+                        </li>
+
+                        <li>
+                            <a href="lista_especialidades.html" class="active">
+                                <i data-lucide="shapes" aria-hidden="true"></i>
+                                Especialidades
+                            </a>
+                        </li>
+
+                        <li>
+                            <a href="#">
+                                <i data-lucide="users-round" aria-hidden="true"></i>
+                                Búsqueda de Pacientes
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+
+                <div class="sidebar-bottom">
+                    <button type="button" class="sidebar-action" disabled>
+                        <i data-lucide="settings" aria-hidden="true"></i>
+                        Configuración
+                    </button>
+
+                    <button type="button" id="logout" class="sidebar-action">
+                        <i data-lucide="log-out" aria-hidden="true"></i>
+                        Cerrar Sesión
+                    </button>
+
+                    <div class="user-profile">
+                        <img src="images/perfil-admin.png"
+                             alt="Foto de la administradora">
+
+                        <div>
+                            <strong>Administradora</strong>
+                            <small>Administradora Jefe</small>
+                        </div>
+                    </div>
+                </div>
+            </nav>
+
+            <main class="specialties-page">
+                <div class="specialties-heading">
+                    <div class="page-heading">
+                        <h1>Directorio de Especialidades</h1>
+                        <p>
+                            Administre las categorías médicas, servicios y disponibilidad
+                            del personal especializado.
+                        </p>
+                    </div>
+
+                    <a href="crear_especialidad.html" class="button button-primary">
+                        <i data-lucide="plus" aria-hidden="true"></i>
+                        Nueva Especialidad
+                    </a>
+                </div>
+
+                <form id="searchForm" class="search-form" role="search">
+                    <div class="specialty-search">
+                        <i data-lucide="search" aria-hidden="true"></i>
+
+                        <input type="search"
+                               id="searchInput"
+                               placeholder="Buscar especialidad..."
+                               aria-label="Buscar especialidad por nombre">
+                    </div>
+
+                    <button type="submit" class="button button-primary">
+                        Buscar
+                    </button>
+
+                    <button type="button" id="clearSearch" class="button button-outline">
+                        Mostrar todas
+                    </button>
+                </form>
+
+                <p id="storageError" class="storage-error" role="alert" hidden></p>
+
+                <section class="directory" aria-label="Listado de especialidades">
+                    <div class="table-container">
+                        <table class="specialties-table">
+                            <thead>
+                                <tr>
+                                    <th scope="col">Nombre de la Especialidad</th>
+                                    <th scope="col">Descripción</th>
+                                    <th scope="col">Estado</th>
+                                    <th scope="col">Acciones</th>
+                                </tr>
+                            </thead>
+
+                            <tbody id="tableBody"></tbody>
+                        </table>
+                    </div>
+
+                    <footer class="directory-footer">
+                        <span id="resultsCount" aria-live="polite"></span>
+                    </footer>
+                </section>
+
+                <section class="specialty-stats" aria-label="Resumen de especialidades">
+                    <article class="specialty-stat">
+                        <div>
+                            <h2>Total especialidades</h2>
+                            <strong id="totalSpecialties">0</strong>
+                            <p>Registradas en el directorio</p>
+                        </div>
+
+                        <span class="stat-icon">
+                            <i data-lucide="list" aria-hidden="true"></i>
+                        </span>
+                    </article>
+
+                    <article class="specialty-stat">
+                        <div>
+                            <h2>Especialidades activas</h2>
+                            <strong id="activeSpecialties">0</strong>
+                            <p>Disponibles</p>
+                        </div>
+
+                        <span class="stat-icon">
+                            <i data-lucide="check" aria-hidden="true"></i>
+                        </span>
+                    </article>
+
+                    <article class="specialty-stat stat-teal">
+                        <div>
+                            <h2>Especialidades inactivas</h2>
+                            <strong id="inactiveSpecialties">0</strong>
+                            <p>No disponibles</p>
+                        </div>
+
+                        <span class="stat-icon">
+                            <i data-lucide="pause" aria-hidden="true"></i>
+                        </span>
+                    </article>
+                </section>
+
+                <div class="bottom-decoration" aria-hidden="true"></div>
+            </main>
+        </div>
+    </body>
+</html>
