@@ -280,4 +280,9 @@ main {
         box-shadow: none;
         border-right: 1px solid #dce4ed;
     }
+
+    .field-error {
+        color: #b42318;
+        font-size: 12px;
+    }
 }

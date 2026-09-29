@@ -77,16 +77,18 @@
             </div>
 
             <section class="form-container" aria-label="Formulario de nueva especialidad">
-                <form id="createSpecialtyForm" class="form-card">
-                    <div class="form-field">
-                        <label for="specialtyName">Nombre de la Especialidad</label>
-                        <input type="text" id="specialtyName" class="form-input" placeholder="Ej. Cardiología Intervencionista" required>
-                    </div>
+                <form id="createSpecialtyForm" class="form-card" novalidate>
+                     <div class="form-field">
+                         <label for="specialtyName">Nombre de la Especialidad</label>
+                         <input type="text" id="specialtyName" class="form-input" placeholder="Ej. Cardiología Intervencionista" required>
+                         <small id="nameError" class="field-error" role="alert"></small>
+                     </div>
 
-                    <div class="form-field">
-                        <label for="specialtyDesc">Descripción</label>
-                        <textarea id="specialtyDesc" class="form-input textarea-input" placeholder="Detalle el alcance de la especialidad..." rows="4" required></textarea>
-                    </div>
+                     <div class="form-field">
+                         <label for="specialtyDesc">Descripción</label>
+                         <textarea id="specialtyDesc" class="form-input textarea-input" placeholder="Detalle el alcance de la especialidad..." rows="4" required></textarea>
+                         <small id="descriptionError" class="field-error" role="alert"></small>
+                     </div>
 
                     <div class="form-field">
                         <label for="specialtyStatus">Estado inicial</label>
