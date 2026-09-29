@@ -46,39 +46,60 @@ document.addEventListener('DOMContentLoaded', () => {
     const form = document.getElementById('createSpecialtyForm');
     const btnCancel = document.getElementById('btnCancel');
 
-    if (btnCancel) {
-        btnCancel.addEventListener('click', function () {
-            if (confirm('¿Estás seguro que deseas cancelar? Se perderán los datos ingresados.')) {
-                form.reset();
-            }
-        });
+    const nameInput = document.getElementById('specialtyName');
+    const descriptionInput = document.getElementById('specialtyDesc');
+    const statusInput = document.getElementById('specialtyStatus');
+
+    const nameError = document.getElementById('nameError');
+    const descriptionError = document.getElementById('descriptionError');
+
+    function limpiarErrores() {
+        nameError.textContent = '';
+        descriptionError.textContent = '';
     }
 
-    if (form) {
-        form.addEventListener('submit', function (event) {
-            event.preventDefault();
+    btnCancel.addEventListener('click', () => {
+        if (confirm('¿Querés cancelar? Se perderán los datos ingresados.')) {
+            form.reset();
+            limpiarErrores();
+        }
+    });
 
-            const nombre = document.getElementById('specialtyName').value.trim();
-            const descripcion = document.getElementById('specialtyDesc').value.trim();
-            const estado = document.getElementById('specialtyStatus').value;
+    form.addEventListener('submit', (event) => {
+        event.preventDefault();
+        limpiarErrores();
 
-            if (nombre === "" || descripcion === "") {
-                alert("Completa el nombre y la descripción de la especialidad.");
-                return;
-            }
+        const nombre = nameInput.value.trim();
+        const descripcion = descriptionInput.value.trim();
 
-            const nuevaEspecialidad = {
-                id: Date.now(),
-                nombre: nombre,
-                descripcion: descripcion,
-                estado: estado
-            };
+        let hayErrores = false;
 
-            let especialidades = JSON.parse(localStorage.getItem('especialidades')) || [];
-            especialidades.push(nuevaEspecialidad);
-            localStorage.setItem('especialidades', JSON.stringify(especialidades));
-            alert(`La especialidad "` + nombre + `" se guardó correctamente`);
-            window.location.href = 'lista_especialidades.html';
-        });
-    }
+        if (nombre === '') {
+            nameError.textContent = 'El nombre es obligatorio.';
+            hayErrores = true;
+        } else if (nombre.length > 15) {
+            nameError.textContent = 'El nombre no puede superar los 15 caracteres.';
+            hayErrores = true;
+        }
+
+        if (descripcion === '') {
+            descriptionError.textContent = 'La descripción es obligatoria.';
+            hayErrores = true;
+        } else if (descripcion.length > 100) {
+            descriptionError.textContent = 'La descripción no puede superar los 100 caracteres.';
+            hayErrores = true;
+        }
+
+        if (hayErrores) {
+            return;
+        }
+
+        const nuevaEspecialidad = {
+            name: nombre,
+            description: descripcion,
+            estado: statusInput.value
+        };
+
+        console.log(nuevaEspecialidad);
+    });
 });
