@@ -1,0 +1,247 @@
+.specialties-heading {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-between;
+    gap: 20px;
+    margin-bottom: 24px;
+}
+
+.specialties-heading .page-heading {
+    flex: 1 1 300px;
+}
+
+    .specialties-heading .page-heading p {
+        max-width: 550px;
+    }
+
+.specialties-heading > .button {
+    flex-shrink: 0;
+}
+
+.search-form {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 24px;
+}
+
+.specialty-search {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    flex: 1 1 220px;
+    max-width: 420px;
+    min-height: 46px;
+    padding: 0 14px;
+    border: 1px solid #cdd7e3;
+    border-radius: 6px;
+    background-color: white;
+    color: #64748b;
+}
+
+    .specialty-search input {
+        width: 100%;
+        min-width: 0;
+        padding: 12px 0;
+        border: 0;
+        background-color: transparent;
+        color: #344054;
+        font-size: 13px;
+    }
+
+.specialties-table {
+    min-width: 650px;
+}
+
+    .specialties-table thead {
+        background-color: #f7f9fc;
+    }
+
+    .specialties-table th {
+        border-top: 0;
+        letter-spacing: 0;
+        font-size: 12px;
+    }
+
+    .specialties-table td {
+        vertical-align: middle;
+        line-height: 1.5;
+    }
+
+    .specialties-table th:first-child {
+        width: 25%;
+    }
+
+    .specialties-table th:nth-child(2) {
+        width: 45%;
+    }
+
+    .specialties-table th:nth-child(3),
+    .specialties-table th:nth-child(4) {
+        width: 15%;
+    }
+
+    .specialties-table td:nth-child(2) {
+        overflow-wrap: anywhere;
+    }
+
+.specialty-name {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    color: #16376a;
+    font-weight: 600;
+    overflow-wrap: anywhere;
+}
+
+.specialty-icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 32px;
+    height: 32px;
+    flex-shrink: 0;
+    border-radius: 4px;
+    background-color: #daf0fc;
+    color: #07518c;
+}
+
+.specialty-state {
+    display: inline-block;
+    padding: 4px 9px;
+    border-radius: 20px;
+    white-space: nowrap;
+    font-size: 11px;
+    font-weight: 600;
+}
+
+    .specialty-state.is-active {
+        color: #008779;
+        background-color: #d8faf0;
+    }
+
+    .specialty-state.is-inactive {
+        color: #64748b;
+        background-color: #e8edf4;
+    }
+
+.action-buttons {
+    display: flex;
+    gap: 8px;
+}
+
+.icon-btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 5px;
+    border: 0;
+    background-color: transparent;
+    color: #8a9db6;
+}
+
+    .icon-btn:disabled {
+        cursor: default;
+    }
+
+.empty-row {
+    padding: 30px;
+    text-align: center;
+    color: #64748b;
+}
+
+.specialty-stats {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 20px;
+    margin-top: 24px;
+}
+
+.specialty-stat {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: flex-start;
+    justify-content: space-between;
+    gap: 12px;
+    min-width: 0;
+    padding: 20px;
+    border: 1px solid #cdd7e3;
+    border-left: 3px solid #07518c;
+    border-radius: 6px;
+    background-color: white;
+}
+
+    .specialty-stat h2 {
+        margin: 0 0 10px;
+        font-size: 11px;
+        font-weight: 500;
+        letter-spacing: 0.6px;
+        text-transform: uppercase;
+        overflow-wrap: anywhere;
+    }
+
+    .specialty-stat strong {
+        color: #092f5a;
+        font-size: 22px;
+    }
+
+    .specialty-stat p {
+        margin: 10px 0 0;
+        color: #64748b;
+        font-size: 11px;
+    }
+
+.stat-icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 36px;
+    height: 36px;
+    border-radius: 5px;
+    background-color: #e4f6fc;
+    color: #07518c;
+}
+
+.stat-teal {
+    border-left-color: #0bb3a3;
+}
+
+    .stat-teal .stat-icon {
+        background-color: #effcf8;
+        color: #009e95;
+    }
+
+.bottom-decoration {
+    height: 100px;
+    margin-top: 30px;
+    border-radius: 12px;
+    background: linear-gradient( to bottom, #e4eff5, #f3faff );
+}
+
+.storage-error {
+    padding: 12px;
+    border: 1px solid #efb4b4;
+    border-radius: 6px;
+    color: #a12626;
+    background-color: #fff2f2;
+}
+
+@media screen and (max-width: 599px) {
+    .specialty-stats {
+        gap: 8px;
+    }
+
+    .specialty-stat {
+        padding: 10px;
+    }
+
+        .specialty-stat h2 {
+            letter-spacing: 0;
+        }
+
+    .specialty-search {
+        max-width: none;
+    }
+}

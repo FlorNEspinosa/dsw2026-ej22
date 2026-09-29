@@ -4,7 +4,6 @@ document.addEventListener('DOMContentLoaded', () => {
         lucide.createIcons();
     }
 
-    // --- LÓGICA DEL MENÚ ---
     const menuBtn = document.getElementById('menu-btn');
     const nav = document.getElementById('nav');
     const logoutButton = document.getElementById('logout');
@@ -21,11 +20,10 @@ document.addEventListener('DOMContentLoaded', () => {
                 const abierto = nav.classList.toggle('open');
                 menuBtn.setAttribute('aria-expanded', String(abierto));
                 menuBtn.setAttribute('aria-label', abierto ? 'Cerrar menú' : 'Abrir menú');
-                event.stopPropagation(); // Evita que se cierre inmediatamente
+                event.stopPropagation(); 
             }
         });
 
-        // Cerrar al hacer clic fuera del menú
         document.addEventListener('click', (event) => {
             if (window.innerWidth < 600 && nav.classList.contains('open') && !nav.contains(event.target)) {
                 cerrarMenu();
@@ -45,7 +43,6 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
-    // --- LÓGICA DEL FORMULARIO ---
     const form = document.getElementById('createSpecialtyForm');
     const btnCancel = document.getElementById('btnCancel');
 
@@ -80,8 +77,8 @@ document.addEventListener('DOMContentLoaded', () => {
             let especialidades = JSON.parse(localStorage.getItem('especialidades')) || [];
             especialidades.push(nuevaEspecialidad);
             localStorage.setItem('especialidades', JSON.stringify(especialidades));
-            alert(`La especialidad "${nombre}" se guardó correctamente`);
-            form.reset();
+            alert(`La especialidad "` + nombre + `" se guardó correctamente`);
+            window.location.href = 'lista_especialidades.html';
         });
     }
 });
