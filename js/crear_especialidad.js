@@ -93,13 +93,14 @@ document.addEventListener('DOMContentLoaded', () => {
         if (hayErrores) {
             return;
         }
-
         const nuevaEspecialidad = {
+            id: crypto.randomUUID(),
             name: nombre,
             description: descripcion,
             estado: statusInput.value
         };
-
-        console.log(nuevaEspecialidad);
+        StorageManager.addSpecialty(nuevaEspecialidad);
+        alert('Especialidad creada con éxito.');
+        window.location.href = 'lista_especialidades.html';
     });
 });
