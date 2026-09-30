@@ -11,6 +11,7 @@
     <link rel="stylesheet" href="css/lista_especialidades.css">
 
     <script src="https://unpkg.com/lucide@latest" defer></script>
+    <script src="js/storage.js" defer></script>
     <script src="js/dashboard.js" defer></script>
     <script src="js/lista_especialidades.js" defer></script>
 </head>
@@ -134,6 +135,8 @@
                                 <tr>
                                     <th scope="col">Nombre de la Especialidad</th>
                                     <th scope="col">Descripción</th>
+                                    <th scope="col">Estado</th>
+                                    <th scope="col">Acciones</th>
                                 </tr>
                             </thead>
 
@@ -143,6 +146,7 @@
 
                     <footer class="directory-footer">
                         <span id="resultsCount" aria-live="polite"></span>
+                        <div class="pagination"></div>
                     </footer>
                 </section>
 
